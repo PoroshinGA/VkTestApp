@@ -81,6 +81,7 @@ dependencies {
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.ktor.client.content.negotation)
 
     /**
      * Navigation dependencies
@@ -96,6 +97,13 @@ dependencies {
     implementation(libs.voyager.kodein)
     implementation(libs.voyager.rxjava)
 
+    /**
+     * DI dependencies
+     */
+    implementation(libs.io.insert.koin.androidx)
+    implementation(libs.io.insert.koin.androidx.compose)
+    implementation(libs.io.insert.koin.test)
+    implementation(libs.io.insert.koin.core)
     /**
      * Glide dependencies
      */

@@ -1,6 +1,7 @@
 [versions]
 agp = "8.3.0"
 glide = "4.16.0"
+io-insert-koin = "3.5.3"
 kotlin = "1.9.0"
 coreKtx = "1.12.0"
 junit = "4.13.2"
@@ -34,11 +35,17 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+io-insert-koin-core = { module = "io.insert-koin:koin-core", version.ref = "io-insert-koin" }
+io-insert-koin-androidx = { module = "io.insert-koin:koin-android", version.ref = "io-insert-koin" }
+io-insert-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "io-insert-koin" }
+io-insert-koin-test = { module = "io.insert-koin:koin-test", version.ref = "io-insert-koin" }
+io-insert-koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "io-insert-koin" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-content-negotation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 voyager-livedata = { module = "cafe.adriel.voyager:voyager-livedata", version.ref = "voyagerVersion" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }

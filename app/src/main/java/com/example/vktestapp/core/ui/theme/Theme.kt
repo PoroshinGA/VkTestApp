@@ -1,4 +1,4 @@
-package com.example.vktestapp.ui.theme
+package com.example.vktestapp.core.ui.theme
 
 import android.app.Activity
 import android.os.Build

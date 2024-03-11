@@ -1,4 +1,4 @@
-package com.example.vktestapp.ui.theme
+package com.example.vktestapp.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
