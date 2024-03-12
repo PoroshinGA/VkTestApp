@@ -81,7 +81,11 @@ dependencies {
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.ktor.client.content.negotation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.mock)
 
     /**
      * Navigation dependencies
@@ -92,10 +96,6 @@ dependencies {
     implementation(libs.voyager.tabNavigator)
     implementation(libs.voyager.transitions)
     implementation(libs.voyager.koin)
-    implementation(libs.voyager.hilt)
-    implementation(libs.voyager.livedata)
-    implementation(libs.voyager.kodein)
-    implementation(libs.voyager.rxjava)
 
     /**
      * DI dependencies
@@ -104,9 +104,6 @@ dependencies {
     implementation(libs.io.insert.koin.androidx.compose)
     implementation(libs.io.insert.koin.test)
     implementation(libs.io.insert.koin.core)
-    /**
-     * Glide dependencies
-     */
-    implementation (libs.glide)
 
+    implementation(libs.coil.compose)
 }
