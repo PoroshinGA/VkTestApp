@@ -1,5 +1,6 @@
 package com.example.vktestapp.app.viewmodel
 
+import android.media.audiofx.DynamicsProcessing.Limiter
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vktestapp.core.domain.GetProductsInfoUseCase
@@ -14,34 +15,23 @@ class MainViewModel(
     private val getProductsInfoUseCase: GetProductsInfoUseCase
 ) : ViewModel() {
 
-    private val _mainScreenModelState: MutableStateFlow<List<ProductShortCard>> = MutableStateFlow(
-        listOf(
-            ProductShortCard(
-                id = 0,
-                title = String(),
-                description = String(),
-                price = 0,
-                discountPercentage = 0.0,
-                thumbnail = String()
-            )
-        )
-    )
+    private val _mainScreenModelState: MutableStateFlow<List<ProductShortCard>> =
+        MutableStateFlow(mutableListOf())
 
-    val mainScreenModelState: StateFlow<List<ProductShortCard>> =
-        _mainScreenModelState.asStateFlow()
+    var skipCount = 0
+    var total = 0
 
-    private var skipCount = 0
-
-    fun request(index: Int) {
-        if (index % 8 == 0) {
-            viewModelScope.launch {
-                getProductsInfoUseCase.invoke(skipCount).onSuccess { response ->
-                    _mainScreenModelState.update {
+    fun request(): List<ProductShortCard> {
+        viewModelScope.launch {
+            getProductsInfoUseCase.invoke(skipCount).onSuccess { response ->
+                _mainScreenModelState.update {
+                    response.let { response ->
+                        total = response.total ?: 0
                         response.products!!.map { productInfo ->
                             ProductShortCard(
                                 id = productInfo.id,
                                 title = productInfo.title,
-                                description = productInfo.description,
+                                description = productInfo.description.take(30) + " ...",
                                 price = productInfo.price,
                                 discountPercentage = productInfo.discountPercentage,
                                 thumbnail = productInfo.thumbnail
@@ -52,5 +42,6 @@ class MainViewModel(
             }
             skipCount += 20
         }
+        return _mainScreenModelState.value
     }
 }
