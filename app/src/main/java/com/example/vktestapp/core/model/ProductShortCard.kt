@@ -7,6 +7,7 @@ import androidx.compose.runtime.Immutable
  *
  * @param [id] unique identifier of the product
  * @param [title] title or name of the product
+ * @param [description] detailed description of the product
  * @param [price] price of the product
  * @param [discountPercentage] discount percentage applied to the product
  * @param [thumbnail] URL or path to the product's thumbnail image
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Immutable
 data class ProductShortCard(
     val id: Int,
     val title: String,
+    val description: String,
     val price: Int,
     val discountPercentage: Double,
     val thumbnail: String

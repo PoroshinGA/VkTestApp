@@ -10,5 +10,5 @@ import com.example.vktestapp.core.model.Response
  * @return [Result] of type [Response] representing the result of the use case
  */
 interface GetProductsInfoUseCase: UseCase {
-    suspend operator fun invoke(): Result<Response>
+    suspend operator fun invoke(skip: Int): Result<Response>
 }

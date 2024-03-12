@@ -1,6 +1,7 @@
 package com.example.vktestapp
 
 import android.app.Application
+import com.example.vktestapp.app.di.provideAppModule
 import com.example.vktestapp.core.network.di.provideNetworkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -13,7 +14,7 @@ class VkTestApp : Application() {
         startKoin {
             androidLogger()
             androidContext(this@VkTestApp)
-            modules(provideNetworkModule)
+            modules(provideNetworkModule, provideAppModule)
         }
     }
 }

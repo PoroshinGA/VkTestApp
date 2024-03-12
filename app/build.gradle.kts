@@ -105,5 +105,8 @@ dependencies {
     implementation(libs.io.insert.koin.test)
     implementation(libs.io.insert.koin.core)
 
+    /**
+     * Coil dependencies
+     */
     implementation(libs.coil.compose)
 }

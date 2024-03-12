@@ -5,6 +5,6 @@ import com.example.vktestapp.core.model.Response
 import com.example.vktestapp.core.network.ProductsService
 
 class GetProductsInfoUseCaseImpl(private val service: ProductsService): GetProductsInfoUseCase {
-    override suspend fun invoke(): Result<Response> =
-        service.products()
+    override suspend fun invoke(skip: Int): Result<Response> =
+        service.products(skip)
 }

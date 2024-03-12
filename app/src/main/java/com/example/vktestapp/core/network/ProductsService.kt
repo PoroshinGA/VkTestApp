@@ -14,14 +14,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 interface ProductsService {
-    suspend fun products(): Result<Response>
+    suspend fun products(skip: Int): Result<Response>
 }
 
 class ProductsServiceImpl(
     private val client: HttpClient,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ProductsService {
-    override suspend fun products(): Result<Response> = withContext(dispatcher) {
+    override suspend fun products(skip: Int): Result<Response> = withContext(dispatcher) {
         client.request<Response> {
             get {
                 url {
@@ -29,6 +29,8 @@ class ProductsServiceImpl(
                     host = "dummyjson.com"
                     contentType(ContentType.Application.Json)
                     path("products")
+                    parameters.append("skip", skip.toString())
+                    parameters.append("limit", "20")
                 }
             }
         }.also { response ->
